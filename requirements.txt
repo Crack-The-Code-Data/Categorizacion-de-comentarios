@@ -1,0 +1,7 @@
+pandas
+boto3
+pyarrow
+openai
+python-dotenv
+tiktoken
+tqdm

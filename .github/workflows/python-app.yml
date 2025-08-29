@@ -1,9 +1,9 @@
-name: Categorizacion de Sentimientos
+name: Categorizacion de comentarios
 
 on:
   workflow_dispatch: # Permite la ejecución manual desde la pestaña Actions de GitHub
   schedule:
-    - cron: '0 0 * * 0' # Se ejecuta todos los domingos a la medianoche (UTC)
+    - cron: '0 0 * * 1' # Se ejecuta todos los domingos a la medianoche (UTC)
 
 jobs:
   run-categorization:

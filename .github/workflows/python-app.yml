@@ -19,7 +19,6 @@ jobs:
         python-version: '3.12' # Usando la misma versión que tu notebook
 
     - name: Install dependencies
-      working-directory: ./notebooks/Categorizacion de sentimientos
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
@@ -30,5 +29,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: us-east-1 # Puedes cambiar esto si usas otra región
-      working-directory: ./notebooks/Categorizacion de comentarios
       run: python run_categorization.py

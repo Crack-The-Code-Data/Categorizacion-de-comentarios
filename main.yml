@@ -1,5 +1,8 @@
 name: Categorizacion de Sentimientos
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch: # Permite la ejecución manual desde la pestaña Actions de GitHub
   schedule:

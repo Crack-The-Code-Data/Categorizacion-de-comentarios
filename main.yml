@@ -32,3 +32,24 @@ jobs:
         AWS_REGION: us-east-1 # Puedes cambiar esto si usas otra región
       working-directory: ./notebooks/Categorizacion de sentimientos
       run: python run_categorization.py
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -f "metricas_uso_openai.csv" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit and push changes
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git add metricas_uso_openai.csv
+        git commit -m "Actualizar métricas de uso de OpenAI - $(date '+%Y-%m-%d %H:%M:%S')" || exit 0
+        git push
